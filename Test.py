@@ -29,8 +29,14 @@ def menu(btn):
         accounts[1].append(password)
         pickle.dump(accounts, open("Accounts_DB.data", "wb"))
     elif btn == "Login":
-        pass
-
+        i = 0
+        user = app.stringBox("Login", "Please type your username")
+        password = app.stringBox("Login", "Please type in your password")
+        for username in accounts[0]:
+            if user == username:
+                if password == accounts[1][i]:
+                    app.addLabel("Login Succesfull!")
+            i += 1
 
 app = appJar.gui("Login!")
 app.setSize(1000,700)
